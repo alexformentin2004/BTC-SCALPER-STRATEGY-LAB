@@ -1,0 +1,1 @@
+window.TRADES=window.TRADES||[];
