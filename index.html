@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#071015" />
+  <title>BTC Scalping Strategy Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo">₿</div><div><b>BTC Strategy Lab</b><small>GitHub Pages build · v1.0.1</small></div></div>
+    <nav>
+      <button class="nav active" data-view="dashboard">Dashboard</button>
+      <button class="nav" data-view="matrix">Strategy Matrix</button>
+      <button class="nav" data-view="detail">Strategy Detail</button>
+      <button class="nav" data-view="leverage">Leverage Lab</button>
+      <button class="nav" data-view="trades">Trade Explorer</button>
+      <button class="nav" data-view="quality">Data Quality</button>
+    </nav>
+    <div class="research-note"><span></span><div><b>Research only</b><small>No live trading</small></div></div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div><p class="eyebrow">BYBIT BTCUSDT PERPETUAL · 1 MINUTE</p><h1 id="title">Research Dashboard</h1></div>
+      <div class="status">● Static build online</div>
+    </header>
+
+    <section id="dashboard" class="view active">
+      <div class="hero"><div><p class="eyebrow">STRATEGY LEAGUE</p><h2>36 scalping strategies compared after costs</h2><p>Starting capital €50 · leverage up to 10× · compounding · conservative intrabar policy.</p></div><div class="hero-score"><b id="bestScore">—</b><small>Best global score</small></div></div>
+      <div id="kpis" class="kpis"></div>
+      <div class="grid two">
+        <article class="panel"><div class="panel-head"><h3>Top global score</h3></div><div class="chart"><canvas id="scoreChart"></canvas></div></article>
+        <article class="panel"><div class="panel-head"><h3>Return vs drawdown</h3></div><div class="chart"><canvas id="riskChart"></canvas></div></article>
+      </div>
+      <article class="panel"><div class="panel-head"><h3>Top evidence candidates</h3><button class="link" data-jump="matrix">Open matrix →</button></div><div id="leaders" class="leaders"></div></article>
+    </section>
+
+    <section id="matrix" class="view">
+      <article class="panel">
+        <div class="toolbar"><div><p class="eyebrow">36 STRATEGIES · 6 FAMILIES</p><h2>Strategy Matrix</h2></div><div class="filters"><input id="search" placeholder="Search…"><select id="family"><option value="">All families</option></select><select id="sort"><option value="rank">Rank</option><option value="globalScore">Global score</option><option value="returnPct">Return</option><option value="maxDrawdownPct">Drawdown</option><option value="netEdgePerTradePct">Net edge</option></select></div></div>
+        <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Strategy</th><th>Family</th><th>TF</th><th>Return</th><th>Net PnL</th><th>Trades</th><th>Win rate</th><th>PF</th><th>Max DD</th><th>Net edge</th><th>OOS</th><th>Robustness</th><th>Confidence</th><th>Global</th></tr></thead><tbody id="matrixBody"></tbody></table></div>
+      </article>
+    </section>
+
+    <section id="detail" class="view">
+      <div class="detail-toolbar"><select id="strategySelect"></select></div>
+      <div id="strategyHero"></div>
+      <div id="detailKpis" class="kpis"></div>
+      <div class="grid two">
+        <article class="panel"><div class="panel-head"><h3>Signal / execution profile</h3></div><div id="profile" class="metric-list"></div></article>
+        <article class="panel"><div class="panel-head"><h3>Long vs Short</h3></div><div class="chart"><canvas id="lsChart"></canvas></div></article>
+        <article class="panel span2"><div class="panel-head"><h3>Validation scores</h3></div><div class="score-grid" id="scoreGrid"></div></article>
+      </div>
+    </section>
+
+    <section id="leverage" class="view">
+      <article class="panel">
+        <div class="toolbar"><div><p class="eyebrow">1× → 10× + DYNAMIC</p><h2>Leverage Lab</h2></div><select id="levStrategy"></select></div>
+        <div id="levKpis" class="kpis"></div>
+        <div class="grid two"><div class="chart"><canvas id="levReturn"></canvas></div><div class="chart"><canvas id="levDd"></canvas></div></div>
+        <div class="table-wrap"><table><thead><tr><th>Leverage</th><th>Ending capital</th><th>Return</th><th>Max DD</th><th>Sharpe</th><th>Sortino</th><th>Survival</th><th>Margin use</th></tr></thead><tbody id="levBody"></tbody></table></div>
+      </article>
+    </section>
+
+    <section id="trades" class="view">
+      <article class="panel">
+        <div class="toolbar"><div><p class="eyebrow">REPRESENTATIVE SAMPLE</p><h2>Trade Explorer</h2></div><div class="filters"><input id="tradeSearch" placeholder="Strategy / regime…"><select id="side"><option value="">LONG + SHORT</option><option>LONG</option><option>SHORT</option></select></div></div>
+        <div class="table-wrap"><table><thead><tr><th>Strategy</th><th>Entry</th><th>Side</th><th>Entry px</th><th>Exit px</th><th>Lev.</th><th>Notional</th><th>Net PnL</th><th>Costs</th><th>Duration</th><th>Exit</th><th>Regime</th></tr></thead><tbody id="tradeBody"></tbody></table></div>
+      </article>
+    </section>
+
+    <section id="quality" class="view">
+      <div class="hero"><div><p class="eyebrow">DATA AUDIT</p><h2>Dataset quality & fingerprint</h2><p>The displayed research remains tied to the analyzed dataset fingerprint.</p></div><div class="hero-score"><b id="qualityScore">—</b><small>Data quality</small></div></div>
+      <div id="qualityKpis" class="kpis"></div>
+      <div class="grid two"><article class="panel"><div class="panel-head"><h3>Fingerprint</h3></div><div id="fingerprint" class="codebox"></div></article><article class="panel"><div class="panel-head"><h3>Audit notes</h3></div><div id="notes" class="notes"></div></article></div>
+    </section>
+
+    <footer>BTC Scalping Strategy Lab · Static GitHub Pages build · Quantitative research only</footer>
+  </main>
+</div>
+<script src="data/summary-01.js"></script>
+<script src="data/summary-02.js"></script>
+<script src="data/summary-03.js"></script>
+<script src="data/leverage-01.js"></script>
+<script src="data/leverage-02.js"></script>
+<script src="data/leverage-03.js"></script>
+<script src="data/leverage-04.js"></script>
+<script src="data/leverage-05.js"></script>
+<script src="data/trades-01.js"></script>
+<script src="data/trades-02.js"></script>
+<script src="data/trades-03.js"></script>
+<script src="data/trades-04.js"></script>
+<script src="meta.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
