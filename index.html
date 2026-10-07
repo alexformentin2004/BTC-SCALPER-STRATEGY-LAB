@@ -11,7 +11,7 @@
 <body>
 <div class="app-shell">
   <aside class="sidebar">
-    <div class="brand"><div class="logo">₿</div><div><b>BTC Strategy Lab</b><small>GitHub Pages build · v1.0.1</small></div></div>
+    <div class="brand"><div class="logo">₿</div><div><b>BTC Strategy Lab</b><small>GitHub Pages build · v1.2.0</small></div></div>
     <nav>
       <button class="nav active" data-view="dashboard">Dashboard</button>
       <button class="nav" data-view="matrix">Strategy Matrix</button>
@@ -30,7 +30,7 @@
     </header>
 
     <section id="dashboard" class="view active">
-      <div class="hero"><div><p class="eyebrow">STRATEGY LEAGUE</p><h2>42 scalping strategies compared after costs</h2><p>Starting capital €50 · leverage up to 10× · compounding · conservative intrabar policy.</p></div><div class="hero-score"><b id="bestScore">—</b><small>Best global score</small></div></div>
+      <div class="hero"><div><p class="eyebrow">STRATEGY LEAGUE</p><h2>45 scalping strategies compared after costs</h2><p>Starting capital €50 · leverage up to 10× · compounding · conservative intrabar policy.</p></div><div class="hero-score"><b id="bestScore">—</b><small>Best global score</small></div></div>
       <div id="kpis" class="kpis"></div>
       <div class="grid two">
         <article class="panel"><div class="panel-head"><h3>Top global score</h3></div><div class="chart"><canvas id="scoreChart"></canvas></div></article>
@@ -41,7 +41,7 @@
 
     <section id="matrix" class="view">
       <article class="panel">
-        <div class="toolbar"><div><p class="eyebrow">42 STRATEGIES · 7 FAMILIES</p><h2>Strategy Matrix</h2></div><div class="filters"><input id="search" placeholder="Search…"><select id="family"><option value="">All families</option></select><select id="sort"><option value="rank">Rank</option><option value="globalScore">Global score</option><option value="returnPct">Return</option><option value="maxDrawdownPct">Drawdown</option><option value="netEdgePerTradePct">Net edge</option></select></div></div>
+        <div class="toolbar"><div><p class="eyebrow">45 STRATEGIES · 8 FAMILIES</p><h2>Strategy Matrix</h2></div><div class="filters"><input id="search" placeholder="Search…"><select id="family"><option value="">All families</option></select><select id="sort"><option value="rank">Rank</option><option value="globalScore">Global score</option><option value="returnPct">Return</option><option value="maxDrawdownPct">Drawdown</option><option value="netEdgePerTradePct">Net edge</option></select></div></div>
         <div class="table-wrap"><table><thead><tr><th>Rank</th><th>Strategy</th><th>Family</th><th>TF</th><th>Return</th><th>Net PnL</th><th>Trades</th><th>Win rate</th><th>PF</th><th>Max DD</th><th>Net edge</th><th>OOS</th><th>Robustness</th><th>Confidence</th><th>Global</th></tr></thead><tbody id="matrixBody"></tbody></table></div>
       </article>
     </section>
@@ -79,11 +79,11 @@
       <div class="grid two"><article class="panel"><div class="panel-head"><h3>Fingerprint</h3></div><div id="fingerprint" class="codebox"></div></article><article class="panel"><div class="panel-head"><h3>Audit notes</h3></div><div id="notes" class="notes"></div></article></div>
     </section>
 
-    <footer>BTC Scalping Strategy Lab v1.1.0 · 42 strategies incl. 6 composites · Quantitative research only</footer>
+    <footer>BTC Scalping Strategy Lab v1.2.0 · 45 strategies · 6 composites + 3 meta-ensembles · Quantitative research only</footer>
   </main>
 </div>
 <script src="data.js"></script>
-<script src="data/ensemble-v1.1.js"></script>
+<script src="data/ensemble-v1.1.js"></script>\n<script src="data/meta-v1.2.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
