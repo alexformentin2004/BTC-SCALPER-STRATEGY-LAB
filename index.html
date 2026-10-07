@@ -11,7 +11,7 @@
 <body>
 <div class="app-shell">
   <aside class="sidebar">
-    <div class="brand"><div class="logo">₿</div><div><b>BTC Strategy Lab</b><small>GitHub Pages build · v1.2.0</small></div></div>
+    <div class="brand"><div class="logo">₿</div><div><b>BTC Strategy Lab</b><small>GitHub Pages build · v1.2.1</small></div></div>
     <nav>
       <button class="nav active" data-view="dashboard">Dashboard</button>
       <button class="nav" data-view="matrix">Strategy Matrix</button>
@@ -69,7 +69,7 @@
     <section id="trades" class="view">
       <article class="panel">
         <div class="toolbar"><div><p class="eyebrow">REPRESENTATIVE SAMPLE</p><h2>Trade Explorer</h2></div><div class="filters"><input id="tradeSearch" placeholder="Strategy / regime…"><select id="side"><option value="">LONG + SHORT</option><option>LONG</option><option>SHORT</option></select></div></div>
-        <div class="table-wrap"><table><thead><tr><th>Strategy</th><th>Entry</th><th>Side</th><th>Entry px</th><th>Exit px</th><th>Lev.</th><th>Notional</th><th>Net PnL</th><th>Costs</th><th>Duration</th><th>Exit</th><th>Regime</th></tr></thead><tbody id="tradeBody"></tbody></table></div>
+        <div class="table-wrap"><table><thead><tr><th>Strategy</th><th>Entry</th><th>Side</th><th>Entry px</th><th>Exit px</th><th>Lev.</th><th>Notional</th><th>Gross PnL</th><th>Costs</th><th>Net PnL</th><th>Equity before</th><th>Equity after</th><th>Duration</th><th>Outcome</th><th>Regime</th></tr></thead><tbody id="tradeBody"></tbody></table></div>
       </article>
     </section>
 
@@ -79,11 +79,12 @@
       <div class="grid two"><article class="panel"><div class="panel-head"><h3>Fingerprint</h3></div><div id="fingerprint" class="codebox"></div></article><article class="panel"><div class="panel-head"><h3>Audit notes</h3></div><div id="notes" class="notes"></div></article></div>
     </section>
 
-    <footer>BTC Scalping Strategy Lab v1.2.0 · 45 strategies · 6 composites + 3 meta-ensembles · Quantitative research only</footer>
+    <footer>BTC Scalping Strategy Lab v1.2.1 · 45 strategies · 6 composites + 3 meta-ensembles · Quantitative research only</footer>
   </main>
 </div>
 <script src="data.js"></script>
-<script src="data/ensemble-v1.1.js"></script>\n<script src="data/meta-v1.2.js"></script>
+<script src="data/ensemble-v1.1.js"></script>
+<script src="data/meta-v1.2.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
